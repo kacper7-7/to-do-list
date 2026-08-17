@@ -32,12 +32,27 @@
             padding: 30px;
             background-color: #f9f9f9;
         }
+        .task-link {
+            text-decoration: none;
+            color: #2c3e50;
+        }
+
+        .task-link:hover {
+            color: #3498db;
+        }
+
+        .task-done {
+            color: green;
+        }
+
+         .task-not-done {
+            color: red;
+        }
+
     </style>
 </head>
 <body>
-
     <div class="sidebar">
-        <h2>To-Do List</h2>
         <nav>
             <a href="{% url 'tasks:task-list' %}">Home</a>
             <a href="{% url 'tasks:tag-list' %}">Tag List</a>

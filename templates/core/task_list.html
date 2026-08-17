@@ -5,8 +5,24 @@
     <ul>
         {% for task in tasks %}
             <li>
-                <strong>{{ task.content }}</strong>
-                <strong>{{ task.is_completed }}</strong>
+                <a href="{% url 'tasks:task-detail' task.pk %}" class="task-link">
+                    <strong>{{ task.content }}</strong>
+                </a>
+                {% if task.is_completed %}
+                    <strong class="task-done">Done</strong>
+                {% else %}
+                    <strong class="task-not-done">Not Done</strong>
+                {% endif %}
+            </li>
+            <li>Created: {{ task.created_at }}</li>
+            <li>Tags:
+                {% for tag in task.tags.all %}
+                    {{ tag.name }}
+                {% empty %}
+                    There is no tags to show
+                {% endfor %}
+                <a href="{% url 'tasks:task-update' task.pk%}">Update</a>
+                <a href="">Delete</a>
             </li>
         {% empty %}
             <li>There is no tasks to show.</li>
