@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Tag list {% endblock %}
+
+{% block content %}
+<h1>Tags</h1>
+<ul>
+    {% for tag in tags %}
+        <li>{{ tag.name }}</li>
+    {% empty %}
+        <li>There is not tags to show.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

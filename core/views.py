@@ -13,3 +13,10 @@ class TaskDetailView(generic.DetailView):
     model = Task
     template_name = "core/task_detail.html"
     context_object_name = "task"
+
+
+class TagListView(generic.ListView):
+    model = Tag
+    template_name = "core/tag_list.html"
+    context_object_name = "tags"
+

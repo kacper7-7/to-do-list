@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Moja Aplikacja{% endblock %}</title>
+    <title>{% block title %}Tasks list{% endblock %}</title>
     <style>
 
         body {
@@ -39,7 +39,8 @@
     <div class="sidebar">
         <h2>To-Do List</h2>
         <nav>
-            <a href="{% url 'tasks:task-list' %}">📋 Tasks List</a>
+            <a href="{% url 'tasks:task-list' %}">Home</a>
+            <a href="{% url 'tasks:tag-list' %}">Tag List</a>
         </nav>
     </div>
 
