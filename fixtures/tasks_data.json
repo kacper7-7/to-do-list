@@ -1,0 +1,56 @@
+[
+  {
+    "model": "core.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Praca"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Dom"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Pilne"
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 1,
+    "fields": {
+      "content": "Przygotować raport kwartalny",
+      "created_at": "2026-08-15T10:00:00Z",
+      "deadline_datetime": "2026-08-20T17:00:00Z",
+      "is_completed": "NOT DONE",
+      "tags": [1, 3]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 2,
+    "fields": {
+      "content": "Zrobić zakupy spożywcze",
+      "created_at": "2026-08-16T12:30:00Z",
+      "deadline_datetime": "2026-08-18T19:00:00Z",
+      "is_completed": "DONE",
+      "tags": [2]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 3,
+    "fields": {
+      "content": "Zapłacić rachunek za prąd",
+      "created_at": "2026-08-17T08:00:00Z",
+      "deadline_datetime": "2026-08-25T23:59:59Z",
+      "is_completed": "NOT DONE",
+      "tags": [2, 3]
+    }
+  }
+]
