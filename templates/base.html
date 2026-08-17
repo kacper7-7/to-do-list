@@ -1,10 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>To do list</title>
+    <title>{% block title %}Moja Aplikacja{% endblock %}</title>
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #34495e;
+        }
+        .sidebar a:hover {
+            color: #1abc9c;
+        }
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
-    <h1>To do list</h1>
+
+    <div class="sidebar">
+        <h2>To-Do List</h2>
+        <nav>
+            <a href="{% url 'tasks:task-list' %}">📋 Tasks List</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
 </body>
 </html>

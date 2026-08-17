@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Szczegóły: {{ task.content }}</title>
 </head>
 <body>
-$END$
+    <h1>Szczegóły zadania</h1>
+
+    <div>
+        <p><strong>Treść:</strong> {{ task.content }}</p>
+        <p><strong>Data utworzenia:</strong> {{ task.created_at|date:"d.m.Y H:i" }}</p>
+        <p><strong>Termin:</strong> {{ task.deadline_datetime|date:"d.m.Y H:i" }}</p>
+        <p>
+            <strong>Status:</strong>
+            {% if task.is_completed %}
+                <span style="color: green;">Ukończone</span>
+            {% else %}
+                <span style="color: red;">W trakcie</span>
+            {% endif %}
+        </p>
+
+        <!-- Wyświetlanie powiązanych tagów -->
+        <p><strong>Tagi:</strong></p>
+        <ul>
+            {% for tag in task.tags.all %}
+                <li>{{ tag.name }}</li>
+            {% empty %}
+                <li>Brak tagów</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="{% url 'tasks:task-list' %}">← Powrót do listy</a>
 </body>
 </html>

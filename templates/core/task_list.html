@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Tasks list</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.content }}</strong>
+                <strong>{{ task.is_completed }}</strong>
+            </li>
+        {% empty %}
+            <li>There is no tasks to show.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
