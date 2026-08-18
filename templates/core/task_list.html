@@ -44,7 +44,7 @@
                         There is no tags to show
                      {% endfor %}
                     <a href="{% url 'core:task-update' task.pk%}" class="task-update-delete-button">Update</a>
-                    <a href="" class="task-update-delete-button">Delete</a>
+                    <a href="{% url 'core:task-delete' task.pk %}" class="task-update-delete-button">Delete</a>
                 </div>
             </li>
         {% endfor %}
