@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="header">
-        <h1>Tasks list</h1>
-        <a href="{% url 'tasks:task-create'%}" class="button task-tag-add-button">Add task</a>
+        <h1>Task list</h1>
+        <a href="{% url 'core:task-create'%}" class="button task-tag-add-button">Add task</a>
     </div>
 
     <ul class="task-list">
@@ -11,7 +11,7 @@
             <li class="task-item">
                 <div class="task-row task-row-first"t>
                     <div>
-                        <a href="{% url 'tasks:task-detail' task.pk %}" class="task-link">
+                        <a href="{% url 'core:task-detail' task.pk %}" class="task-link">
                             <strong>{{ task.content }}</strong>
                         </a>
                         {% if task.is_completed %}
@@ -21,7 +21,7 @@
                         {% endif %}
                     </div>
                     <div>
-                        <form action="{% url 'tasks:task-toggle' task.pk %}" method="POST">
+                        <form action="{% url 'core:task-toggle' task.pk %}" method="POST">
                             {% csrf_token %}
                             {% if task.is_completed %}
                                 <button class="button task-undo-button">Undo</button>
@@ -43,7 +43,7 @@
                      {% empty %}
                         There is no tags to show
                      {% endfor %}
-                    <a href="{% url 'tasks:task-update' task.pk%}" class="task-update-delete-button">Update</a>
+                    <a href="{% url 'core:task-update' task.pk%}" class="task-update-delete-button">Update</a>
                     <a href="" class="task-update-delete-button">Delete</a>
                 </div>
             </li>
