@@ -26,6 +26,7 @@ class TaskCreateView(generic.CreateView):
     form_class = TaskForm
     success_url = reverse_lazy("tasks:task-list")
 
+
 class TaskUpdateView(generic.UpdateView):
     model = Task
     template_name = "core/task_form.html"
@@ -45,11 +46,13 @@ class TagUpdateView(generic.UpdateView):
     form_class = TagForm
     success_url = reverse_lazy("tasks:tag-list")
 
+
 class TagCreateView(generic.CreateView):
     model = Tag
     template_name = "core/tag_form.html"
     form_class = TagForm
     success_url = reverse_lazy("tasks:tag-list")
+
 
 class TagDeleteView(generic.DeleteView):
     model = Tag
