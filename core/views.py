@@ -1,7 +1,10 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.views import generic
 from django.urls import reverse_lazy
+from django.views.decorators.http import require_POST
+
 from .models import Task, Tag
-from .forms import TaskForm
+from .forms import TaskForm, TagForm
 
 
 class TaskListView(generic.ListView):
@@ -17,7 +20,7 @@ class TaskDetailView(generic.DetailView):
     context_object_name = "task"
 
 
-class TaskCreateView(generic.UpdateView):
+class TaskCreateView(generic.CreateView):
     model = Task
     template_name = "core/task_form.html"
     form_class = TaskForm
@@ -35,3 +38,28 @@ class TagListView(generic.ListView):
     template_name = "core/tag_list.html"
     context_object_name = "tags"
 
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    template_name = "core/tag_form.html"
+    form_class = TagForm
+    success_url = reverse_lazy("tasks:tag-list")
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    template_name = "core/tag_form.html"
+    form_class = TagForm
+    success_url = reverse_lazy("tasks:tag-list")
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+    template_name = "core/tag_confirm_delete.html"
+    success_url = reverse_lazy("tasks:tag-list")
+
+
+@require_POST
+def toggle_complete_button(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    task.is_completed = not task.is_completed
+    task.save()
+    return redirect("tasks:task-list")

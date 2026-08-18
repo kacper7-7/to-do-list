@@ -1,31 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Tasks list</h1>
-    <ul>
+    <div class="header">
+        <h1>Tasks list</h1>
+        <a href="{% url 'tasks:task-create'%}" class="button task-tag-add-button">Add task</a>
+    </div>
+
+    <ul class="task-list">
         {% for task in tasks %}
-            <li>
-                <a href="{% url 'tasks:task-detail' task.pk %}" class="task-link">
-                    <strong>{{ task.content }}</strong>
-                </a>
-                {% if task.is_completed %}
-                    <strong class="task-done">Done</strong>
-                {% else %}
-                    <strong class="task-not-done">Not Done</strong>
-                {% endif %}
+            <li class="task-item">
+                <div class="task-row task-row-first"t>
+                    <div>
+                        <a href="{% url 'tasks:task-detail' task.pk %}" class="task-link">
+                            <strong>{{ task.content }}</strong>
+                        </a>
+                        {% if task.is_completed %}
+                            <strong class="task-done">Done</strong>
+                        {% else %}
+                            <strong class="task-not-done">Not Done</strong>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <form action="{% url 'tasks:task-toggle' task.pk %}" method="POST">
+                            {% csrf_token %}
+                            {% if task.is_completed %}
+                                <button class="button task-undo-button">Undo</button>
+                            {% else %}
+                                <button class="button task-complete-button">Complete</button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+
+                <div class="task-row">
+                     Created: {{ task.created_at }}
+                </div>
+
+                <div class="task-row">
+                     Tags:
+                     {% for tag in task.tags.all %}
+                        {{ tag.name }}
+                     {% empty %}
+                        There is no tags to show
+                     {% endfor %}
+                    <a href="{% url 'tasks:task-update' task.pk%}" class="task-update-delete-button">Update</a>
+                    <a href="" class="task-update-delete-button">Delete</a>
+                </div>
             </li>
-            <li>Created: {{ task.created_at }}</li>
-            <li>Tags:
-                {% for tag in task.tags.all %}
-                    {{ tag.name }}
-                {% empty %}
-                    There is no tags to show
-                {% endfor %}
-                <a href="{% url 'tasks:task-update' task.pk%}">Update</a>
-                <a href="">Delete</a>
-            </li>
-        {% empty %}
-            <li>There is no tasks to show.</li>
         {% endfor %}
     </ul>
 {% endblock %}

@@ -3,13 +3,28 @@
 {% block title %}Tag list {% endblock %}
 
 {% block content %}
-<h1>Tags</h1>
-<ul>
-    {% for tag in tags %}
-        <li>{{ tag.name }}</li>
-    {% empty %}
-        <li>There is not tags to show.</li>
-    {% endfor %}
-</ul>
+<div class="tag-header">
+    <h1>Tags</h1>
+    <a href="{% url 'tasks:tag-create' %}" class="button task-tag-add-button">Add</a>
+</div>
 
+    <table class="tasks-table">
+        <thead>
+            <tr class="table-row">
+                <th>Name</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for tag in tags %}
+                <tr class="table-row">
+                    <td class="table-data">{{tag.name }}</td>
+                    <td class="table-data"><a href="{% url 'tasks:tag-update' tag.pk %}" class="button tag-update-button">UPDATE</a></td>
+                    <td class="table-data"><a href="{% url 'tasks:tag-delete' tag.pk %}" class="button tag-delete-button">DELETE</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
