@@ -3,7 +3,7 @@
 {% block title %}Task detail {% endblock %}
 
 {% block content %}
-    <h1>Szczegóły zadania</h1>
+    <h1>Task detail</h1>
 
     <div>
         <p><strong>Content:</strong> {{ task.content }}</p>
@@ -14,7 +14,7 @@
             {% if task.is_completed %}
                 <span style="color: green;">Completed</span>
             {% else %}
-                <span style="color: red;">Pending</span>
+                <span style="color: red;">Not done</span>
             {% endif %}
         </p>
 
@@ -24,7 +24,7 @@
             {% for tag in task.tags.all %}
                 <li>{{ tag.name }}</li>
             {% empty %}
-                <li>Brak tagów</li>
+                <li>There is no tags.</li>
             {% endfor %}
         </ul>
     </div>

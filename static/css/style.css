@@ -65,13 +65,13 @@ body {
     color: green;
 }
 
- .task-not-done {
+.task-not-done {
     color: red;
 }
 
 
 
- .header {
+.header {
      display: flex;
      justify-content: space-between;
      padding: 15px 0 15px;
@@ -83,8 +83,6 @@ body {
 .task-update-delete-button {
       text-decoration: none;
   }
-
-
 
 
 .button {
@@ -138,7 +136,7 @@ body {
      align-items: center;
  }
 
-.tasks-table {
+.tags-table {
      width: 100%;
  }
 

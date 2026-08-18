@@ -3,13 +3,13 @@
 {% block content %}
     <div class="header">
         <h1>Task list</h1>
-        <a href="{% url 'core:task-create'%}" class="button task-tag-add-button">Add task</a>
+        <a href="{% url 'core:task-create' %}" class="button task-tag-add-button">Add task</a>
     </div>
 
     <ul class="task-list">
         {% for task in tasks %}
             <li class="task-item">
-                <div class="task-row task-row-first"t>
+                <div class="task-row task-row-first">
                     <div>
                         <a href="{% url 'core:task-detail' task.pk %}" class="task-link">
                             <strong>{{ task.content }}</strong>
