@@ -170,10 +170,6 @@ th, td {
      background-color: green;
  }
 
- .delete-buttons {
-     display: flex;
-     gap: 30px;
- }
 
  .danger-delete-button {
      height: 40px;

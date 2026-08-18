@@ -8,13 +8,7 @@
 
     <form method="POST">
         {% csrf_token %}
-        <div class="delete-buttons">
             <button type="submit" class="danger-delete-button">Yes, delete</button>
-            <div>
-                <a href="{% url 'core:tag-list' %}" class="cancel-button">Cancel</a>
-            </div>
-
-        </div>
-
+            <a href="{% url 'core:tag-list' %}" class="cancel-button">Cancel</a>
     </form>
 {% endblock %}

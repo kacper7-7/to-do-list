@@ -7,6 +7,7 @@ from core.models import Tag, Task
 class TagAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     pass
