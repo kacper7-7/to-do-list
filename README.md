@@ -21,9 +21,9 @@ A simple, intuitive, and fully tested web application for managing tasks and tag
 ![task-list.png](images/task-list.png)
 ![task-detail.png](images/task-detail.png)
 ![add-task.png](images/add-task.png)
-![delete-task.png](../../Desktop/projekt%20django/delete-task.png)
+![delete-task.png](images/delete-task.png)
 
-![tag-table.png](../../Desktop/projekt%20django/tag-table.png)
+![tag-table.png](images/tag-table.png)
 ![tag-delete.png](../../Desktop/projekt%20django/tag-delete.png)
 
 ##  Local Setup
