@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="header">
+        <h1>Task list</h1>
+        <a href="{% url 'core:task-create' %}"
+           class="button task-tag-add-button">Add task</a>
+    </div>
+    <ul class="task-list">
+        {% for task in tasks %}
+            <li class="task-item">
+                <div class="task-row task-row-first">
+                    <div>
+                        <a href="{% url 'core:task-detail' task.pk %}" class="task-link">
+                            <strong>{{ task.content }}</strong>
+                        </a>
+                        {% if task.is_completed %}
+                            <strong class="task-done">Done</strong>
+                        {% else %}
+                            <strong class="task-not-done">Not Done</strong>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <form action="{% url 'core:task-toggle' task.pk %}" method="POST">
+                            {% csrf_token %}
+                            {% if task.is_completed %}
+                                <button class="button task-undo-button">Undo</button>
+                            {% else %}
+                                <button class="button task-complete-button">Complete</button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+                <div class="task-row">Created: {{ task.created_at }}</div>
+                <div class="task-row">
+                    Tags:
+                    {% for tag in task.tags.all %}
+                        {{ tag.name }}
+                    {% empty %}
+                        There is no tags to show
+                    {% endfor %}
+                    <a href="{% url 'core:task-update' task.pk %}"
+                       class="task-update-delete-button">Update</a>
+                    <a href="{% url 'core:task-delete' task.pk %}"
+                       class="task-update-delete-button">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

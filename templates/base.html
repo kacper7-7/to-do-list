@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Tasks list{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="sidebar">
+            <nav>
+                <a href="{% url 'core:task-list' %}">Home</a>
+                <a href="{% url 'core:tag-list' %}">Tags</a>
+            </nav>
+        </div>
+        <div class="main-content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

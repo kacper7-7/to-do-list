@@ -1,0 +1,199 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #34495e;
+}
+.sidebar a:hover {
+    color: #1abc9c;
+}
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+.task-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.task-item  {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.task-row {
+    margin-bottom: 20px;
+}
+
+.task-row-first {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 0;
+}
+
+.task-link {
+    text-decoration: none;
+    color: #2c3e50;
+}
+
+.task-link:hover {
+    color: #3498db;
+}
+
+.task-done {
+    color: green;
+}
+
+.task-not-done {
+    color: red;
+}
+
+
+
+.header {
+     display: flex;
+     justify-content: space-between;
+     padding: 15px 0 15px;
+     align-items: center;
+
+ }
+
+
+.task-update-delete-button {
+      text-decoration: none;
+  }
+
+
+.button {
+  height: 40px;
+  width: 80px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.task-tag-add-button {
+     background-color: #3498db;
+ }
+
+.task-add-button:hover {
+    background-color: #1abc9c;
+}
+
+.task-complete-button {
+     background-color: green;
+ }
+
+
+.task-complete-button:hover {
+     background-color: #1abc9c;
+ }
+
+.task-undo-button {
+     background-color: gray;
+ }
+
+.task-undo-button:hover {
+     background-color: red;
+ }
+
+.task-tag-save-button {
+    background-color: #3498db;
+}
+
+.task-tag-save-button:hover {
+    background-color: #1abc9c;
+}
+
+.tag-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+.tags-table {
+     width: 100%;
+ }
+
+.table-row {
+    margin-bottom: 30px;
+
+ }
+
+th, td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.tag-delete-button {
+     display: block;
+     background-color: gray;
+ }
+
+ .tag-delete-button:hover {
+     background-color: red;
+ }
+
+ .tag-update-button {
+     display: block;
+     background-color: gray;
+ }
+
+ .tag-update-button:hover {
+     background-color: green;
+ }
+
+
+ .danger-delete-button {
+     height: 40px;
+     background-color: red;
+     width: 80px;
+     border: none;
+     border-radius: 6px;
+     color: white;
+     text-decoration: none;
+     text-align: center;
+     line-height: 40px;
+     cursor: pointer;
+ }
+
+ .cancel-button {
+     display: inline-block;
+     height: 40px;
+     line-height: 40px;
+     background-color: gray;
+     width: 80px;
+     border: none;
+     border-radius: 6px;
+     color: white;
+     text-decoration: none;
+     text-align: center;
+     cursor: pointer;
+ }

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Task detail{% endblock %}
+{% block content %}
+    <h1>Task detail</h1>
+    <div>
+        <p><strong>Content:</strong> {{ task.content }}</p>
+        <p><strong>Create date:</strong> {{ task.created_at|date:"d.m.Y H:i" }}</p>
+        <p><strong>Deadline:</strong> {{ task.deadline_datetime|date:"d.m.Y H:i" }}</p>
+        <p>
+            <strong>Status:</strong>
+            {% if task.is_completed %}
+                <span style="color: green;">Completed</span>
+            {% else %}
+                <span style="color: red;">Not done</span>
+            {% endif %}
+        </p>
+        <p><strong>Tagi:</strong></p>
+        <ul>
+            {% for tag in task.tags.all %}
+                <li>{{ tag.name }}</li>
+            {% empty %}
+                <li>There is no tags.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{% url 'core:task-list' %}">← Back to list</a>
+{% endblock %}

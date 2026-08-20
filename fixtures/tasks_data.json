@@ -1,0 +1,110 @@
+[
+  {
+    "model": "core.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Praca"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Dom"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Pilne"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Hobby"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Rodzina"
+    }
+  },
+  {
+    "model": "core.tag",
+    "pk": 6,
+    "fields": {
+      "name": "Zdrowie"
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 1,
+    "fields": {
+      "content": "Przygotować raport kwartalny",
+      "created_at": "2026-08-15T10:00:00Z",
+      "deadline_datetime": "2026-08-20T17:00:00Z",
+      "is_completed": false,
+      "tags": [1, 3]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 2,
+    "fields": {
+      "content": "Zrobić zakupy spożywcze",
+      "created_at": "2026-08-16T12:30:00Z",
+      "deadline_datetime": "2026-08-18T19:00:00Z",
+      "is_completed": true,
+      "tags": [2]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 3,
+    "fields": {
+      "content": "Zapłacić rachunek za prąd",
+      "created_at": "2026-08-17T08:00:00Z",
+      "deadline_datetime": "2026-08-25T23:59:59Z",
+      "is_completed": false,
+      "tags": [2, 3]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 4,
+    "fields": {
+      "content": "Pójść na trening na siłownię",
+      "created_at": "2026-08-18T09:00:00Z",
+      "deadline_datetime": "2026-08-19T20:00:00Z",
+      "is_completed": false,
+      "tags": [6]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 5,
+    "fields": {
+      "content": "Kupić prezent na urodziny mamy",
+      "created_at": "2026-08-18T11:00:00Z",
+      "deadline_datetime": "2026-08-22T15:00:00Z",
+      "is_completed": false,
+      "tags": [3, 5]
+    }
+  },
+  {
+    "model": "core.task",
+    "pk": 6,
+    "fields": {
+      "content": "Poczytać książkę (minimum 50 stron)",
+      "created_at": "2026-08-18T18:00:00Z",
+      "deadline_datetime": "2026-08-30T22:00:00Z",
+      "is_completed": true,
+      "tags": [4]
+    }
+  }
+]
